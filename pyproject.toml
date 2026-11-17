@@ -1,0 +1,7 @@
+[project]
+name = "busbidder-spain"
+version = "0.1.0"
+description = "Filter and rank competing bus offers for an individual traveller (ACIT4420 final project)"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = []

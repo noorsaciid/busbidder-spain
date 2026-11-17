@@ -1,0 +1,21 @@
+Profile: budget - Budget student: price weighted 60%, any fare type
+Hard constraints (offers violating any are removed):
+  destination = Malaga; date 2026-07-12..2026-07-14; seats >= 1; price <= EUR 40; transfers <= 2
+Soft preferences (weights used for ranking):
+  preferred departure 09:00; price 60%, duration 15%, departure 10%, flexibility 15%
+Offers on this route and dates removed by: budget (6), seats (1)
+
+  # offer                 company        depart         dur    EUR tr fare                  seats    price duration departur flexibil   TOTAL
+  1 SR-MAL-20260714-1045  SolRuta        14/07 10:45   8h49  24.60  1 changeable               11     93.5     32.7     82.5     50.0    76.8
+  2 CL-MAL-20260712-1815  CostaLink      12/07 18:15   7h35  26.99  0 changeable               19     78.9     65.9      7.5     50.0    65.5
+  3 SR-MAL-20260713-0700  SolRuta        13/07 07:00   8h09  26.31  0 fixed                     6     83.1     50.7     80.0      0.0    65.4
+  4 NV-MAL-20260712-2345  NocheVia       12/07 23:45   9h53  26.65  0 changeable+refundable    34     81.0      4.0      7.5    100.0    65.0
+  5 CL-MAL-20260713-0945  CostaLink      13/07 09:45   7h22  28.65  0 fixed                    26     68.8     71.7     92.5      0.0    61.3
+... 9 more acceptable offers (use --top to show more)
+
+Why #1?
+SolRuta SR-MAL-20260714-1045 ranks first with 76.8/100.
+Strengths: price EUR 24.60, departs 10:45.
+Trade-offs: journey 8h49.
+It ranks first only under the chosen constraints and weights (price weighted most at 60%).
+

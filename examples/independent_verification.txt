@@ -1,0 +1,44 @@
+Independent validation: 792 valid, 10 invalid
+PASS program accepts exactly the same offer IDs as the independent validator
+PASS 10 invalid rows set aside (program 10, independent 10)
+PASS all 75 company-destination pairs present
+PASS review file lists all 10 with a reason
+
+Company profile check (all destinations, all dates):
+  SolRuta         EUR/km 0.049  km/h  62.0  CO2/km 0.030  late 0%  coastal direct 71%  changeable 23%  rating 3.60
+  Camino Express  EUR/km 0.088  km/h  74.6  CO2/km 0.028  late 0%  coastal direct 59%  changeable 84%  rating 4.40
+  CostaLink       EUR/km 0.064  km/h  61.7  CO2/km 0.027  late 0%  coastal direct 100%  changeable 59%  rating 4.01
+  VerdeBus        EUR/km 0.079  km/h  68.2  CO2/km 0.012  late 0%  coastal direct 78%  changeable 76%  rating 4.27
+  NocheVia        EUR/km 0.054  km/h  46.9  CO2/km 0.026  late 100%  coastal direct 60%  changeable 53%  rating 3.90
+PASS SolRuta is the cheapest per km (low-cost)
+PASS Camino Express is the fastest
+PASS VerdeBus has the lowest CO2
+PASS only NocheVia runs late evening
+PASS CostaLink is always direct to coastal destinations
+
+PASS example           14 acceptable; order, totals and per-criterion scores match independent calculation
+PASS example           accepted + rejected = all valid offers
+     #1 SR-MAL-20260714-1045 SolRuta, EUR 24.60, 8h49, dep 10:45, 1 tr, ch=True rf=False, CO2 15.9, score 69.33; #2 CE-MAL-20260713-0845 67.34
+PASS budget            14 acceptable; order, totals and per-criterion scores match independent calculation
+PASS budget            accepted + rejected = all valid offers
+     #1 SR-MAL-20260714-1045 SolRuta, EUR 24.60, 8h49, dep 10:45, 1 tr, ch=True rf=False, CO2 15.9, score 76.75; #2 CL-MAL-20260712-1815 65.50
+PASS business          13 acceptable; order, totals and per-criterion scores match independent calculation
+PASS business          accepted + rejected = all valid offers
+     #1 CE-MAL-20260713-0845 Camino Express, EUR 45.09, 6h03, dep 08:45, 0 tr, ch=True rf=True, CO2 14.8, score 90.68; #2 CE-MAL-20260714-0830 79.09
+PASS flexible_tourist  16 acceptable; order, totals and per-criterion scores match independent calculation
+PASS flexible_tourist  accepted + rejected = all valid offers
+     #1 CE-MAL-20260713-0845 Camino Express, EUR 45.09, 6h03, dep 08:45, 0 tr, ch=True rf=True, CO2 14.8, score 79.30; #2 NV-MAL-20260712-2345 62.71
+PASS eco               20 acceptable; order, totals and per-criterion scores match independent calculation
+PASS eco               accepted + rejected = all valid offers
+     #1 VB-MAL-20260714-0830 VerdeBus, EUR 38.72, 7h29, dep 08:30, 0 tr, ch=True rf=False, CO2 6.4, score 78.00; #2 VB-MAL-20260713-0830 73.44
+
+PASS budget winner is within EUR 3 of the cheapest acceptable fare
+PASS business winner is direct and changeable
+PASS flexible tourist winner is changeable and refundable
+PASS eco winner is VerdeBus (lowest CO2)
+PASS at least three different winners across profiles
+PASS booked all 17 seats, the next booking is refused, 0 left
+PASS capacity and bookings survive a restart
+PASS sold-out offer disappears from the business ranking
+
+ALL CHECKS PASSED

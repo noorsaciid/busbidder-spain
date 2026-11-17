@@ -1,0 +1,11 @@
+offer_id,company,destination,departure,arrival,price,transfers,luggage_kg,changeable,refundable,seats,rating,co2_kg,reason
+SR-MAL-20260712-0900,SR,Malaga,2026-07-12 09:00,2026-07-12 17:00,-12.00,0,15,no,no,38,3.8,18.6,"price must be at least 0, got -12.0"
+CE-PAR-20260712-0800,SR,Paris,2026-07-10 07:15,2026-07-10 16:42,24.88,0,15,no,no,38,3.8,18.6,unknown destination 'Paris'
+VB-MAL-20260732-0800,SR,Malaga,2026-07-32 08:00,2026-07-32 15:00,24.88,0,15,no,no,38,3.8,18.6,invalid date/time (expected YYYY-MM-DD HH:MM)
+CL-VLC-20260713-1500,SR,Valencia,2026-07-13 15:00,2026-07-13 11:00,24.88,0,15,no,no,38,3.8,18.6,arrival is not after departure
+NV-SEV-20260713-2200,NV,Seville,2026-07-13 22:00,2026-07-14 06:30,24.88,0,15,no,no,38,7.5,18.6,"rating must be at most 5, got 7.5"
+SR-TOL-20260714-0700,SR,Toledo,2026-07-14 07:00,2026-07-14 08:15,24.88,0,15,no,no,-3,3.8,18.6,"seats must be at least 0, got -3"
+SR-GRA-20260714-1000,SR,Granada,2026-07-14 10:00,2026-07-14 16:30,,0,15,no,no,38,3.8,18.6,missing value(s): price
+SR_MAL_2026,SR,Barcelona,2026-07-10 07:15,2026-07-10 16:42,24.88,0,15,no,no,38,3.8,18.6,offer_id does not match the pattern XX-XXX-YYYYMMDD-HHMM
+SR-BCN-20260710-0715,SR,Barcelona,2026-07-10 07:15,2026-07-10 16:42,24.88,0,15,no,no,38,3.8,18.6,duplicate offer_id
+CE-BCN-20260710-0715,SR,Barcelona,2026-07-10 07:15,2026-07-10 16:42,24.88,0,15,no,no,38,3.8,18.6,"offer_id is inconsistent with its company, destination or departure"

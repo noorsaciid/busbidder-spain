@@ -1,0 +1,40 @@
+1. Weight sensitivity (example profile, other weights keep their 25:15:20 ratio)
+   price  winner                company           SR-MAL-20260714-1045  CE-MAL-20260713-0845
+    0.10  CE-MAL-20260713-0845  Camino Express                    54.0                  91.4
+    0.15  CE-MAL-20260713-0845  Camino Express                    56.6                  87.4
+    0.20  CE-MAL-20260713-0845  Camino Express                    59.1                  83.4
+    0.25  CE-MAL-20260713-0845  Camino Express                    61.7                  79.4
+    0.30  CE-MAL-20260713-0845  Camino Express                    64.2                  75.4
+    0.35  CE-MAL-20260713-0845  Camino Express                    66.8                  71.3
+    0.40  SR-MAL-20260714-1045  SolRuta                           69.3                  67.3  <- winner changes
+    0.45  SR-MAL-20260714-1045  SolRuta                           71.9                  63.3
+    0.50  SR-MAL-20260714-1045  SolRuta                           74.4                  59.3
+    0.55  SR-MAL-20260714-1045  SolRuta                           77.0                  55.3
+    0.60  SR-MAL-20260714-1045  SolRuta                           79.6                  51.3
+    0.65  SR-MAL-20260714-1045  SolRuta                           82.1                  47.3
+    0.70  SR-MAL-20260714-1045  SolRuta                           84.7                  43.3
+    0.75  SR-MAL-20260714-1045  SolRuta                           87.2                  39.3
+    0.80  SR-MAL-20260714-1045  SolRuta                           89.8                  35.3
+   tipping point: SR-MAL-20260714-1045 first wins at price weight 0.385 (the example profile uses 0.400)
+
+2. Rank reversal (example profile)
+   14 acceptable offers; removing one offer at a time gives 11 reversed pairs
+   removing SR-MAL-20260714-1045 swaps CE-MAL-20260714-0830 and NV-MAL-20260712-2345
+   removing SR-MAL-20260714-1045 swaps CE-MAL-20260714-1215 and VB-MAL-20260714-1645
+   removing CE-MAL-20260713-0845 swaps NV-MAL-20260714-2000 and VB-MAL-20260713-0830
+   removing CE-MAL-20260713-0845 swaps CL-MAL-20260714-1815 and CE-MAL-20260714-1215
+   removing NV-MAL-20260712-2345 swaps NV-MAL-20260714-2000 and VB-MAL-20260713-0830
+
+3. Price stretch (EUR per price point among acceptable offers)
+   example           14 offers, EUR  24.60 -  49.99, 1 point = EUR 0.254
+   budget            14 offers, EUR  23.53 -  39.96, 1 point = EUR 0.164
+   business          13 offers, EUR  26.65 -  52.74, 1 point = EUR 0.261
+   flexible_tourist  16 offers, EUR  23.53 -  52.74, 1 point = EUR 0.292
+   eco               20 offers, EUR  23.53 -  52.74, 1 point = EUR 0.292
+
+4. Company exposure in the top 3
+   example           #1 SolRuta, #2 Camino Express, #3 CostaLink
+   budget            #1 SolRuta, #2 CostaLink, #3 SolRuta
+   business          #1 Camino Express, #2 Camino Express, #3 VerdeBus
+   flexible_tourist  #1 Camino Express, #2 NocheVia, #3 CostaLink
+   eco               #1 VerdeBus, #2 VerdeBus, #3 VerdeBus

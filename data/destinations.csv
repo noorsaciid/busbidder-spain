@@ -1,0 +1,16 @@
+name,code,distance_km,coastal
+Barcelona,BCN,620,yes
+Valencia,VLC,360,yes
+Seville,SEV,530,no
+Malaga,MAL,530,yes
+Granada,GRA,420,no
+Cordoba,COR,400,no
+Bilbao,BIL,400,yes
+San Sebastian,SSB,450,yes
+Zaragoza,ZAR,320,no
+Alicante,ALC,420,yes
+Murcia,MUR,400,no
+Salamanca,SAL,215,no
+Toledo,TOL,75,no
+Santiago de Compostela,SCQ,600,no
+Cadiz,CAD,650,yes

@@ -1,0 +1,6 @@
+profile            acceptable  #1 offer              company            EUR    dur  depart fare                   score
+example                    14  SR-MAL-20260714-1045  SolRuta          24.60   8h49  10:45 changeable              69.3
+budget                     14  SR-MAL-20260714-1045  SolRuta          24.60   8h49  10:45 changeable              76.8
+business                   13  CE-MAL-20260713-0845  Camino Express   45.09   6h03  08:45 changeable+refundable   90.7
+flexible_tourist           16  CE-MAL-20260713-0845  Camino Express   45.09   6h03  08:45 changeable+refundable   79.3
+eco                        20  VB-MAL-20260714-0830  VerdeBus         38.72   7h29  08:30 changeable              78.0

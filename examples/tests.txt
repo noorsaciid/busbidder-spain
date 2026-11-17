@@ -1,0 +1,76 @@
+test_booking_reduces_seats_and_persists (tests.test_booking.BookingStoreTest.test_booking_reduces_seats_and_persists) ... ok
+test_bookings_beyond_capacity_are_reported (tests.test_booking.BookingStoreTest.test_bookings_beyond_capacity_are_reported) ... ok
+test_cannot_overbook (tests.test_booking.BookingStoreTest.test_cannot_overbook) ... ok
+test_corrupt_file_is_not_overwritten (tests.test_booking.BookingStoreTest.test_corrupt_file_is_not_overwritten) ... ok
+test_invalid_reference_in_file (tests.test_booking.BookingStoreTest.test_invalid_reference_in_file) ... ok
+test_invalid_requests (tests.test_booking.BookingStoreTest.test_invalid_requests) ... ok
+test_references_are_unique (tests.test_booking.BookingStoreTest.test_references_are_unique) ... ok
+test_bad_input_returns_error_code (tests.test_booking.CliTest.test_bad_input_returns_error_code) ... Error: unknown profile 'nobody'; choose from example, budget, business, flexible_tourist, eco
+Error: weights sum to 180; they must sum to 1.0 (or 100%)
+Error: unknown destination 'Paris'
+Error: invalid request: max_price must be at least 0, got -5.0
+Error: travel window ends before it starts
+ok
+test_profiles_disagree (tests.test_booking.CliTest.test_profiles_disagree) ... ok
+test_rank_and_book (tests.test_booking.CliTest.test_rank_and_book)
+Full pipeline: load -> validate -> filter -> rank -> book -> save, then check the state change. ... ok
+test_acceptable_offer_passes (tests.test_constraints.HardConstraintTest.test_acceptable_offer_passes) ... ok
+test_budget_boundary (tests.test_constraints.HardConstraintTest.test_budget_boundary) ... ok
+test_duplicate_registration_is_refused (tests.test_constraints.HardConstraintTest.test_duplicate_registration_is_refused) ... ok
+test_every_violation_is_reported (tests.test_constraints.HardConstraintTest.test_every_violation_is_reported) ... ok
+test_fare_and_route_constraints (tests.test_constraints.HardConstraintTest.test_fare_and_route_constraints) ... ok
+test_seats_and_passengers (tests.test_constraints.HardConstraintTest.test_seats_and_passengers) ... ok
+test_travel_window_is_inclusive (tests.test_constraints.HardConstraintTest.test_travel_window_is_inclusive) ... ok
+test_duplicates_rejected_and_review_file_written (tests.test_loader.LoadFilesTest.test_duplicates_rejected_and_review_file_written) ... Rejected offer SR-MAL-20260712-0900: duplicate offer_id
+Rejected offer SR-MAL-20260712-0900: price must be at least 0, got -5.0
+ok
+test_missing_column (tests.test_loader.LoadFilesTest.test_missing_column) ... ok
+test_missing_file (tests.test_loader.LoadFilesTest.test_missing_file) ... ok
+test_non_utf8_file (tests.test_loader.LoadFilesTest.test_non_utf8_file) ... ok
+test_shipped_dataset (tests.test_loader.LoadFilesTest.test_shipped_dataset) ... Rejected offer SR-MAL-20260712-0900: price must be at least 0, got -12.0
+Rejected offer CE-PAR-20260712-0800: unknown destination 'Paris'
+Rejected offer VB-MAL-20260732-0800: invalid date/time (expected YYYY-MM-DD HH:MM)
+Rejected offer CL-VLC-20260713-1500: arrival is not after departure
+Rejected offer NV-SEV-20260713-2200: rating must be at most 5, got 7.5
+Rejected offer SR-TOL-20260714-0700: seats must be at least 0, got -3
+Rejected offer SR-GRA-20260714-1000: missing value(s): price
+Rejected offer SR_MAL_2026: offer_id does not match the pattern XX-XXX-YYYYMMDD-HHMM
+Rejected offer SR-BCN-20260710-0715: duplicate offer_id
+Rejected offer CE-BCN-20260710-0715: offer_id is inconsistent with its company, destination or departure
+ok
+test_invalid_values (tests.test_loader.ParseOfferTest.test_invalid_values) ... ok
+test_missing_values (tests.test_loader.ParseOfferTest.test_missing_values) ... ok
+test_offer_id_regex_and_consistency (tests.test_loader.ParseOfferTest.test_offer_id_regex_and_consistency) ... ok
+test_optional_fields_may_be_blank (tests.test_loader.ParseOfferTest.test_optional_fields_may_be_blank) ... ok
+test_rating_scale_boundaries_accepted (tests.test_loader.ParseOfferTest.test_rating_scale_boundaries_accepted) ... ok
+test_valid_row_is_converted (tests.test_loader.ParseOfferTest.test_valid_row_is_converted) ... ok
+test_zero_seats_is_valid_data (tests.test_loader.ParseOfferTest.test_zero_seats_is_valid_data) ... ok
+test_bad_request (tests.test_loader.ProfileTest.test_bad_request) ... ok
+test_named_departure_times (tests.test_loader.ProfileTest.test_named_departure_times) ... ok
+test_shipped_profiles_load (tests.test_loader.ProfileTest.test_shipped_profiles_load) ... ok
+test_boundaries_are_accepted (tests.test_models.BoundedDescriptorTest.test_boundaries_are_accepted) ... ok
+test_name_discovered_and_value_stored_internally (tests.test_models.BoundedDescriptorTest.test_name_discovered_and_value_stored_internally) ... ok
+test_objects_stay_frozen_and_replace_revalidates (tests.test_models.BoundedDescriptorTest.test_objects_stay_frozen_and_replace_revalidates) ... ok
+test_one_descriptor_class_serves_several_models (tests.test_models.BoundedDescriptorTest.test_one_descriptor_class_serves_several_models) ... ok
+test_optional_fields_accept_none_and_have_defaults (tests.test_models.BoundedDescriptorTest.test_optional_fields_accept_none_and_have_defaults) ... ok
+test_out_of_range_is_rejected (tests.test_models.BoundedDescriptorTest.test_out_of_range_is_rejected) ... ok
+test_wrong_type_is_rejected (tests.test_models.BoundedDescriptorTest.test_wrong_type_is_rejected) ... ok
+test_all_scores_within_0_100 (tests.test_scoring.NormalisationTest.test_all_scores_within_0_100) ... ok
+test_departure_is_absolute_and_wraps_midnight (tests.test_scoring.NormalisationTest.test_departure_is_absolute_and_wraps_midnight) ... ok
+test_flexibility_categories (tests.test_scoring.NormalisationTest.test_flexibility_categories) ... ok
+test_identical_values_do_not_separate (tests.test_scoring.NormalisationTest.test_identical_values_do_not_separate) ... ok
+test_lower_price_scores_higher (tests.test_scoring.NormalisationTest.test_lower_price_scores_higher) ... ok
+test_missing_value_scores_neutral_and_is_flagged (tests.test_scoring.NormalisationTest.test_missing_value_scores_neutral_and_is_flagged) ... ok
+test_empty_input (tests.test_scoring.RankingTest.test_empty_input) ... ok
+test_explanation_names_strengths_weaknesses_and_caveat (tests.test_scoring.RankingTest.test_explanation_names_strengths_weaknesses_and_caveat) ... ok
+test_ties_are_broken_reproducibly (tests.test_scoring.RankingTest.test_ties_are_broken_reproducibly) ... ok
+test_weights_change_the_winner (tests.test_scoring.RankingTest.test_weights_change_the_winner) ... Criterion price carries 70% of the score and may dominate the ranking
+Criterion duration carries 70% of the score and may dominate the ranking
+ok
+test_fractions_and_percentages (tests.test_scoring.WeightTest.test_fractions_and_percentages) ... ok
+test_invalid_weights (tests.test_scoring.WeightTest.test_invalid_weights) ... ok
+
+----------------------------------------------------------------------
+Ran 51 tests in 0.477s
+
+OK

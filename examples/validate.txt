@@ -1,0 +1,11 @@
+Valid offers: 792; set aside for review: 10
+  SR-MAL-20260712-0900: price must be at least 0, got -12.0
+  CE-PAR-20260712-0800: unknown destination 'Paris'
+  VB-MAL-20260732-0800: invalid date/time (expected YYYY-MM-DD HH:MM)
+  CL-VLC-20260713-1500: arrival is not after departure
+  NV-SEV-20260713-2200: rating must be at most 5, got 7.5
+  SR-TOL-20260714-0700: seats must be at least 0, got -3
+  SR-GRA-20260714-1000: missing value(s): price
+  SR_MAL_2026: offer_id does not match the pattern XX-XXX-YYYYMMDD-HHMM
+  SR-BCN-20260710-0715: duplicate offer_id
+  CE-BCN-20260710-0715: offer_id is inconsistent with its company, destination or departure

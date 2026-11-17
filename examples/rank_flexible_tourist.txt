@@ -1,0 +1,21 @@
+Profile: flexible_tourist - Tourist who may change plans: flexible fare and good service
+Hard constraints (offers violating any are removed):
+  destination = Malaga; date 2026-07-12..2026-07-14; seats >= 1; price <= EUR 60; transfers <= 1; luggage >= 20 kg
+Soft preferences (weights used for ranking):
+  preferred departure 11:00; price 25%, duration 10%, departure 10%, flexibility 40%, rating 15%
+Offers on this route and dates removed by: luggage (5), seats (1)
+
+  # offer                 company        depart         dur    EUR tr fare                  seats    price duration departur flexibil   rating   TOTAL
+  1 CE-MAL-20260713-0845  Camino Express 13/07 08:45   6h03  45.09  0 changeable+refundable    17     26.2    100.0     77.5    100.0    100.0    79.3
+  2 NV-MAL-20260712-2345  NocheVia       12/07 23:45   9h53  26.65  0 changeable+refundable    34     89.3      3.8      0.0    100.0      0.0    62.7
+  3 CL-MAL-20260712-1315  CostaLink      12/07 13:15   7h34  32.66  0 changeable               18     68.7     61.9     77.5     50.0     50.0    58.6
+  4 VB-MAL-20260714-0830  VerdeBus       14/07 08:30   7h29  38.72  0 changeable                4     48.0     64.0     75.0     50.0     75.0    57.2
+  5 CL-MAL-20260712-1815  CostaLink      12/07 18:15   7h35  26.99  0 changeable               19     88.2     61.5     27.5     50.0     37.5    56.6
+... 11 more acceptable offers (use --top to show more)
+
+Why #1?
+Camino Express CE-MAL-20260713-0845 ranks first with 79.3/100.
+Strengths: journey 6h03, departs 08:45, changeable+refundable fare, rating 4.6/5.
+Trade-offs: price EUR 45.09.
+It ranks first only under the chosen constraints and weights (flexibility weighted most at 40%).
+

@@ -1,0 +1,17 @@
+example: The specification's example traveller with the example weights
+  hard: destination = Malaga; date 2026-07-12..2026-07-14; seats >= 1; price <= EUR 50; transfers <= 1; changeable required
+  soft: departure 09:00, price 40%, duration 25%, departure 15%, flexibility 20%
+budget: Budget student: price weighted 60%, any fare type
+  hard: destination = Malaga; date 2026-07-12..2026-07-14; seats >= 1; price <= EUR 40; transfers <= 2
+  soft: departure 09:00, price 60%, duration 15%, departure 10%, flexibility 15%
+business: Business traveller: fast, direct, early arrival, changeable ticket
+  hard: destination = Malaga; date 2026-07-12..2026-07-14; seats >= 1; price <= EUR 80; transfers <= 0; changeable required
+  soft: departure 08:00, price 10%, duration 40%, departure 30%, flexibility 20%
+flexible_tourist: Tourist who may change plans: flexible fare and good service
+  hard: destination = Malaga; date 2026-07-12..2026-07-14; seats >= 1; price <= EUR 60; transfers <= 1; luggage >= 20 kg
+  soft: departure 11:00, price 25%, duration 10%, departure 10%, flexibility 40%, rating 15%
+eco: Environment-focused traveller: low CO2 per passenger
+  hard: destination = Malaga; date 2026-07-12..2026-07-14; seats >= 1; price <= EUR 60; transfers <= 1
+  soft: departure 09:00, price 20%, duration 10%, departure 10%, flexibility 15%, co2 45%
+
+Available criteria: price, duration, departure, flexibility, transfers, rating, co2

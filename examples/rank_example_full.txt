@@ -1,0 +1,30 @@
+Profile: example - The specification's example traveller with the example weights
+Hard constraints (offers violating any are removed):
+  destination = Malaga; date 2026-07-12..2026-07-14; seats >= 1; price <= EUR 50; transfers <= 1; changeable required
+Soft preferences (weights used for ranking):
+  preferred departure 09:00; price 40%, duration 25%, departure 15%, flexibility 20%
+Offers on this route and dates removed by: changeable ticket (6), seats (1), budget (1)
+
+  # offer                 company        depart         dur    EUR tr fare                  seats    price duration departur flexibil   TOTAL
+  1 SR-MAL-20260714-1045  SolRuta        14/07 10:45   8h49  24.60  1 changeable               11    100.0     27.8     82.5     50.0    69.3
+  2 CE-MAL-20260713-0845  Camino Express 13/07 08:45   6h03  45.09  0 changeable+refundable    17     19.3    100.0     97.5    100.0    67.3
+  3 CL-MAL-20260712-1815  CostaLink      12/07 18:15   7h35  26.99  0 changeable               19     90.6     60.0      7.5     50.0    62.4
+  4 CL-MAL-20260712-1315  CostaLink      12/07 13:15   7h34  32.66  0 changeable               18     68.3     60.4     57.5     50.0    61.0
+  5 CE-MAL-20260714-0830  Camino Express 14/07 08:30   6h22  42.59  0 changeable               14     29.1     91.7     95.0     50.0    58.8
+  6 NV-MAL-20260712-2345  NocheVia       12/07 23:45   9h53  26.65  0 changeable+refundable    34     91.9      0.0      7.5    100.0    57.9
+  7 VB-MAL-20260714-0830  VerdeBus       14/07 08:30   7h29  38.72  0 changeable                4     44.4     62.6     95.0     50.0    57.7
+  8 CE-MAL-20260712-1700  Camino Express 12/07 17:00   6h19  39.96  0 changeable               31     39.5     93.0     20.0     50.0    52.1
+  9 VB-MAL-20260712-1630  VerdeBus       12/07 16:30   7h10  38.10  0 changeable                2     46.8     70.9     25.0     50.0    50.2
+ 10 NV-MAL-20260714-2000  NocheVia       14/07 20:00   9h51  26.87  0 changeable                7     91.1      0.9      0.0     50.0    46.6
+ 11 VB-MAL-20260713-0830  VerdeBus       13/07 08:30   8h16  42.51  1 changeable               38     29.5     42.2     95.0     50.0    46.6
+ 12 CL-MAL-20260714-1815  CostaLink      14/07 18:15   7h45  37.37  0 changeable                1     49.7     55.7      7.5     50.0    44.9
+ 13 CE-MAL-20260714-1215  Camino Express 14/07 12:15   6h05  49.99  0 changeable                5      0.0     99.1     67.5     50.0    44.9
+ 14 VB-MAL-20260714-1645  VerdeBus       14/07 16:45   7h17  41.36  0 changeable               29     34.0     67.8     22.5     50.0    43.9
+
+Why #1?
+SolRuta SR-MAL-20260714-1045 ranks first with 69.3/100.
+Strengths: price EUR 24.60, departs 10:45.
+Trade-offs: journey 8h49.
+Only 2.0 points ahead of #2 (CE-MAL-20260713-0845): effectively a tie under these weights.
+It ranks first only under the chosen constraints and weights (price weighted most at 40%).
+

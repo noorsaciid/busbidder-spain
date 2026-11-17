@@ -1,0 +1,31 @@
+Profile: business - Business traveller: fast, direct, early arrival, changeable ticket
+Hard constraints (offers violating any are removed):
+  destination = Malaga; date 2026-07-12..2026-07-14; seats >= 2; price <= EUR 80; transfers <= 0; changeable required
+Soft preferences (weights used for ranking):
+  preferred departure 08:00; price 10%, duration 40%, departure 30%, flexibility 20%
+Offers on this route and dates removed by: changeable ticket (6), max transfers (4), seats (2)
+
+  # offer                 company        depart         dur    EUR tr fare                  seats    price duration departur flexibil   TOTAL
+  1 CE-MAL-20260713-0845  Camino Express 13/07 08:45   6h03  45.09  0 changeable+refundable    17     29.3    100.0     92.5    100.0    90.7
+  2 CE-MAL-20260714-0830  Camino Express 14/07 08:30   6h22  42.59  0 changeable               14     38.9     91.7     95.0     50.0    79.1
+  3 VB-MAL-20260714-0830  VerdeBus       14/07 08:30   7h29  38.72  0 changeable                4     53.7     62.6     95.0     50.0    68.9
+  4 CE-MAL-20260714-1215  Camino Express 14/07 12:15   6h05  49.99  0 changeable                5     10.5     99.1     57.5     50.0    68.0
+  5 CE-MAL-20260713-1230  Camino Express 13/07 12:30   6h14  52.74  0 changeable               14      0.0     95.2     55.0     50.0    64.6
+  6 CL-MAL-20260712-1315  CostaLink      12/07 13:15   7h34  32.66  0 changeable               18     77.0     60.4     47.5     50.0    56.1
+  7 CE-MAL-20260712-1700  Camino Express 12/07 17:00   6h19  39.96  0 changeable               31     49.0     93.0     10.0     50.0    55.1
+  8 VB-MAL-20260712-1630  VerdeBus       12/07 16:30   7h10  38.10  0 changeable                2     56.1     70.9     15.0     50.0    48.5
+  9 VB-MAL-20260714-1645  VerdeBus       14/07 16:45   7h17  41.36  0 changeable               29     43.6     67.8     12.5     50.0    45.2
+ 10 CL-MAL-20260712-1815  CostaLink      12/07 18:15   7h35  26.99  0 changeable               19     98.7     60.0      0.0     50.0    43.9
+... 2 more acceptable offers (use --top to show more)
+
+Why #1?
+Camino Express CE-MAL-20260713-0845 ranks first with 90.7/100.
+Strengths: journey 6h03, departs 08:45, changeable+refundable fare.
+Trade-offs: price EUR 45.09.
+It ranks first only under the chosen constraints and weights (duration weighted most at 40%).
+
+Booking confirmed: BB-ELJL7D
+  Ana Lopez, 2 passenger(s)
+  Camino Express: Madrid -> Malaga, departs 2026-07-13 08:45
+  Total EUR 90.18 (payment SIMULATED-PAID, no card data collected)
+  Fare: changeable=yes, refundable=yes, luggage 20 kg

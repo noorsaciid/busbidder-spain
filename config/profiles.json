@@ -1,0 +1,37 @@
+{
+  "example": {
+    "description": "The specification's example traveller with the example weights",
+    "request": {"destination": "Malaga", "date_from": "2026-07-12", "date_to": "2026-07-14",
+                "max_price": 50, "max_transfers": 1, "changeable_required": true},
+    "preferred_departure": "morning",
+    "weights": {"price": 0.40, "duration": 0.25, "departure": 0.15, "flexibility": 0.20}
+  },
+  "budget": {
+    "description": "Budget student: price weighted 60%, any fare type",
+    "request": {"destination": "Malaga", "date_from": "2026-07-12", "date_to": "2026-07-14",
+                "max_price": 40, "max_transfers": 2},
+    "preferred_departure": "morning",
+    "weights": {"price": 0.60, "duration": 0.15, "departure": 0.10, "flexibility": 0.15}
+  },
+  "business": {
+    "description": "Business traveller: fast, direct, early arrival, changeable ticket",
+    "request": {"destination": "Malaga", "date_from": "2026-07-12", "date_to": "2026-07-14",
+                "max_price": 80, "max_transfers": 0, "changeable_required": true},
+    "preferred_departure": "08:00",
+    "weights": {"price": 0.10, "duration": 0.40, "departure": 0.30, "flexibility": 0.20}
+  },
+  "flexible_tourist": {
+    "description": "Tourist who may change plans: flexible fare and good service",
+    "request": {"destination": "Malaga", "date_from": "2026-07-12", "date_to": "2026-07-14",
+                "max_price": 60, "max_transfers": 1, "min_luggage_kg": 20},
+    "preferred_departure": "11:00",
+    "weights": {"price": 0.25, "duration": 0.10, "departure": 0.10, "flexibility": 0.40, "rating": 0.15}
+  },
+  "eco": {
+    "description": "Environment-focused traveller: low CO2 per passenger",
+    "request": {"destination": "Malaga", "date_from": "2026-07-12", "date_to": "2026-07-14",
+                "max_price": 60, "max_transfers": 1},
+    "preferred_departure": "morning",
+    "weights": {"price": 0.20, "duration": 0.10, "departure": 0.10, "flexibility": 0.15, "co2": 0.45}
+  }
+}

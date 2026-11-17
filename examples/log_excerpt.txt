@@ -1,0 +1,15 @@
+2026-11-17 21:27:34,648 WARNING busbidder.loader: Rejected offer SR-MAL-20260712-0900: price must be at least 0, got -12.0
+2026-11-17 21:27:34,661 WARNING busbidder.loader: Rejected offer CE-PAR-20260712-0800: unknown destination 'Paris'
+2026-11-17 21:27:34,661 WARNING busbidder.loader: Rejected offer VB-MAL-20260732-0800: invalid date/time (expected YYYY-MM-DD HH:MM)
+2026-11-17 21:27:34,661 WARNING busbidder.loader: Rejected offer CL-VLC-20260713-1500: arrival is not after departure
+2026-11-17 21:27:34,661 WARNING busbidder.loader: Rejected offer NV-SEV-20260713-2200: rating must be at most 5, got 7.5
+2026-11-17 21:27:34,661 WARNING busbidder.loader: Rejected offer SR-TOL-20260714-0700: seats must be at least 0, got -3
+2026-11-17 21:27:34,661 WARNING busbidder.loader: Rejected offer SR-GRA-20260714-1000: missing value(s): price
+2026-11-17 21:27:34,661 WARNING busbidder.loader: Rejected offer SR_MAL_2026: offer_id does not match the pattern XX-XXX-YYYYMMDD-HHMM
+2026-11-17 21:27:34,661 WARNING busbidder.loader: Rejected offer SR-BCN-20260710-0715: duplicate offer_id
+2026-11-17 21:27:34,661 WARNING busbidder.loader: Rejected offer CE-BCN-20260710-0715: offer_id is inconsistent with its company, destination or departure
+2026-11-17 21:27:34,661 INFO busbidder.loader: Loaded 792 valid offers, set aside 10 for review
+2026-11-17 21:27:34,661 INFO busbidder: Ranked 12 acceptable offers (780 rejected) for Malaga 2026-07-12..2026-07-14
+2026-11-17 21:27:34,661 INFO busbidder.booking: Booked BB-ELJL7D: Ana Lopez x2 on CE-MAL-20260713-0845
+2026-11-17 21:27:35,661 INFO busbidder: Ranked 13 acceptable offers (779 rejected) for Malaga 2026-07-12..2026-07-14
+2026-11-17 21:27:36,232 ERROR busbidder: invalid request: max_price must be at least 0, got -5.0

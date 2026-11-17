@@ -1,0 +1,1 @@
+# No third-party dependencies: BusBidder uses only the Python standard library (Python >= 3.10).

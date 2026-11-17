@@ -1,0 +1,21 @@
+Profile: eco - Environment-focused traveller: low CO2 per passenger
+Hard constraints (offers violating any are removed):
+  destination = Malaga; date 2026-07-12..2026-07-14; seats >= 1; price <= EUR 60; transfers <= 1
+Soft preferences (weights used for ranking):
+  preferred departure 09:00; price 20%, duration 10%, departure 10%, flexibility 15%, co2 45%
+Offers on this route and dates removed by: seats (1)
+
+  # offer                 company        depart         dur    EUR tr fare                  seats    price duration departur flexibil      co2   TOTAL
+  1 VB-MAL-20260714-0830  VerdeBus       14/07 08:30   7h29  38.72  0 changeable                4     48.0     64.0     95.0     50.0    100.0    78.0
+  2 VB-MAL-20260713-0830  VerdeBus       13/07 08:30   8h16  42.51  1 changeable               38     35.0     44.4     95.0     50.0    100.0    73.4
+  3 VB-MAL-20260712-1630  VerdeBus       12/07 16:30   7h10  38.10  0 changeable                2     50.1     72.0     25.0     50.0    100.0    72.2
+  4 VB-MAL-20260714-1645  VerdeBus       14/07 16:45   7h17  41.36  0 changeable               29     39.0     69.0     22.5     50.0    100.0    69.4
+  5 CE-MAL-20260713-0845  Camino Express 13/07 08:45   6h03  45.09  0 changeable+refundable    17     26.2    100.0     97.5    100.0     11.6    45.2
+... 15 more acceptable offers (use --top to show more)
+
+Why #1?
+VerdeBus VB-MAL-20260714-0830 ranks first with 78.0/100.
+Strengths: departs 08:30, 6.4 kg CO2.
+Trade-offs: price EUR 38.72.
+It ranks first only under the chosen constraints and weights (co2 weighted most at 45%).
+
