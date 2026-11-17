@@ -64,6 +64,7 @@
 
   <section id="request" aria-labelledby="request-title">
     <h2 id="request-title">Travel request</h2>
+    <p class="hint" id="mode-note" role="status"></p>
     <form id="form">
       <div class="field"><label for="profile">Traveller profile</label><select name="profile" id="profile" required></select></div>
       <div class="field"><label for="destination">Destination</label><select name="destination" id="destination" required></select></div>
@@ -110,7 +111,55 @@ function row(cells, header) {
 }
 function showOffline() { $("offline").hidden = false; $("rank-btn").disabled = true; }
 
+// Static hosting (GitHub Pages) has no Python server, so the same busbidder package runs in the browser with Pyodide.
+const PYODIDE = "https://cdn.jsdelivr.net/pyodide/v0.27.2/full/";
+const SOURCES = ["busbidder/__init__.py", "busbidder/booking.py", "busbidder/cli.py", "busbidder/constraints.py",
+  "busbidder/errors.py", "busbidder/loader.py", "busbidder/models.py", "busbidder/scoring.py", "busbidder/web.py",
+  "data/companies.csv", "data/destinations.csv", "data/offers.csv", "config/profiles.json"];
+const ROOT = "/home/pyodide/bb", STORE_KEY = "busbidder-bookings";
+let py = null;
+
+function storage(fn) { try { return fn(localStorage); } catch { return null; } }  // blocked storage must not break the app
+
+async function startInBrowser() {
+  $("mode-note").textContent = "Loading the program into your browser (about 10 MB the first time)...";
+  await new Promise((ok, fail) => { const s = el("script"); s.src = PYODIDE + "pyodide.js"; s.onload = ok; s.onerror = () => fail(new Error("Could not load Pyodide")); document.head.append(s); });
+  py = await loadPyodide({ indexURL: PYODIDE });
+  for (const dir of ["busbidder", "data", "config", "output"]) py.FS.mkdirTree(`${ROOT}/${dir}`);
+  for (const f of SOURCES) {
+    const res = await fetch(new URL("../" + f, location.href));
+    if (!res.ok) throw new Error(`Could not load ${f} (${res.status})`);
+    py.FS.writeFile(`${ROOT}/${f}`, await res.text());
+  }
+  const saved = storage(s => s.getItem(STORE_KEY));
+  if (saved) py.FS.writeFile(`${ROOT}/output/bookings.json`, saved);
+  const boot = `
+import sys, json
+sys.path.insert(0, "${ROOT}")
+from pathlib import Path
+from busbidder.cli import App
+from busbidder.web import respond
+app = App(Path("${ROOT}/output"))
+def call(path, body):
+    return json.dumps(respond(app, path, None if body is None else json.loads(body)))
+`;
+  try { py.runPython(boot); }
+  catch (e) {  // a damaged saved bookings list must not lock the user out
+    if (!saved) throw e;
+    storage(s => s.removeItem(STORE_KEY)); py.FS.unlink(`${ROOT}/output/bookings.json`); py.runPython(boot);
+  }
+  $("mode-note").textContent = "Running in your browser. Bookings are saved in this browser only.";
+}
+
+function localCall(path, body) {
+  const [status, data] = JSON.parse(py.globals.get("call")(path, body === undefined ? null : JSON.stringify(body)));
+  if (status !== 200) throw new Error(data.error);
+  if (path === "/api/book") storage(s => s.setItem(STORE_KEY, py.FS.readFile(`${ROOT}/output/bookings.json`, { encoding: "utf8" })));
+  return data;
+}
+
 async function api(path, body) {
+  if (py) return localCall(path, body);
   let res;
   try {
     res = await fetch(new URL(path, location.origin), body
@@ -193,7 +242,11 @@ $("profile").onchange = fillProfile;
 
 (async () => {
   if (!SERVED) return showOffline();
-  try { meta = await api("/api/meta"); } catch (e) { $("form-error").textContent = e.message; return; }
+  const probe = await fetch(new URL("/api/meta", location.origin)).catch(() => null);
+  try {
+    if (!probe || !probe.ok || !(probe.headers.get("Content-Type") || "").includes("json")) await startInBrowser();
+    meta = await api("/api/meta");
+  } catch (e) { $("mode-note").textContent = ""; $("form-error").textContent = e.message; $("rank-btn").disabled = true; return; }
   Object.keys(meta.profiles).forEach(n => $("profile").append(el("option", n)));
   meta.destinations.forEach(d => $("destination").append(el("option", d)));
   fillProfile();

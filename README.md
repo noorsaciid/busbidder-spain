@@ -31,6 +31,13 @@ Override the profile for one run:
 python -m busbidder rank example --destination Seville --from 2026-07-10 --to 2026-07-11 --budget 35 --departure evening --weights price=30,duration=30,departure=20,flexibility=20
 ```
 
+## Online version (GitHub Pages)
+
+The same page also works as a static site. When no Python server answers, `busbidder/web.html` loads
+[Pyodide](https://pyodide.org) (Python in the browser) and runs this package there; bookings are then kept
+in the browser's local storage. `index.html` forwards to the page, and `.nojekyll` lets GitHub serve
+`__init__.py`. To publish: Settings > Pages > Deploy from a branch > `main`, folder `/ (root)`.
+
 ## Tests
 
 ```bash

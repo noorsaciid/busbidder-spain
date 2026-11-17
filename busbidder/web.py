@@ -70,6 +70,23 @@ def meta(app):
             "destinations": sorted(app.destinations)}
 
 
+def respond(app, path, data=None):
+    """Route one API call; data is None for GET. Used by the HTTP server and by the browser (Pyodide) build."""
+    get = {"/api/meta": meta, "/api/bookings": lambda a: [asdict(b) for b in a.store.bookings]}
+    post = {"/api/rank": rank, "/api/book": book}
+    try:
+        if data is None and path in get:
+            return 200, get[path](app)
+        if data is not None and path in post:
+            if not isinstance(data, dict):
+                raise ConfigError("expected a JSON object")
+            return 200, post[path](app, data)
+        return 404, {"error": "not found"}
+    except (BusBidderError, ValueError) as e:
+        log.error("web: %s", e)
+        return 400, {"error": str(e)}
+
+
 class Handler(BaseHTTPRequestHandler):
     app = None  # set by serve()
 
@@ -84,28 +101,19 @@ class Handler(BaseHTTPRequestHandler):
     def do_GET(self):
         if self.path == "/":
             self._send(200, PAGE.read_bytes(), "text/html")
-        elif self.path == "/api/meta":
-            self._send(200, meta(self.app))
-        elif self.path == "/api/bookings":
-            self._send(200, [asdict(b) for b in self.app.store.bookings])
         else:
-            self._send(404, {"error": "not found"})
+            self._send(*respond(self.app, self.path))
 
     def do_POST(self):
-        route = {"/api/rank": rank, "/api/book": book}.get(self.path)
-        if route is None:
-            return self._send(404, {"error": "not found"})
         try:
             length = int(self.headers.get("Content-Length") or 0)
             if not 0 <= length <= MAX_BODY:
                 raise ConfigError("request body too large")
             data = json.loads(self.rfile.read(length) or b"{}")
-            if not isinstance(data, dict):
-                raise ConfigError("expected a JSON object")
-            self._send(200, route(self.app, data))
         except (BusBidderError, ValueError) as e:  # ValueError covers bad JSON and a bad Content-Length
             log.error("web: %s", e)
-            self._send(400, {"error": str(e)})
+            return self._send(400, {"error": str(e)})
+        self._send(*respond(self.app, self.path, data))
 
     def log_message(self, fmt, *args):
         log.info("web %s", fmt % args)
